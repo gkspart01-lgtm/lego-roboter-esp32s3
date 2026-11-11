@@ -1,5 +1,7 @@
 # 05 — Mechanik & 3D-Druck
 
+> Fertige, druckbare Adapter (SG90, 28BYJ-48, TT-Motor → LEGO-Kreuzachse) liegen in **[07-3d-adapter.md](07-3d-adapter.md)** — als STL, OpenSCAD und mit Renderings.
+
 ## LEGO-Maße, die man kennen muss
 
 | Größe | Wert |

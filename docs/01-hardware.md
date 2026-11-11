@@ -2,7 +2,7 @@
 
 ## Die Wahl: ESP32-S3-WROOM-1 N16R8 CAM (mit OV2640)
 
-![ESP32-S3-CAM](img/board_esp32s3.png)
+![ESP32-S3-CAM](../img/board_esp32s3.jpg)
 
 | Merkmal | Wert |
 |---|---|
@@ -19,7 +19,7 @@
 
 ### Pinout (keyestudio MB0184, gleiche Bauform)
 
-![Pinout](img/pinout.png)
+![Pinout](../img/pinout.png)
 
 ## Verworfene Alternativen
 

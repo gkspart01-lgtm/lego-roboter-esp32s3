@@ -6,7 +6,7 @@ Preise geprüft am **11.11.2026**, jeweils ohne Versandkosten. Produktbilder sta
 
 | Bild | Bauteil | Warum | Preis | Shop |
 |---|---|---|---|---|
-| <img src="../img/board_esp32s3.png" width="130"> | **ESP32-S3-WROOM-1 N16R8 CAM**, OV2640, 16 MB/8 MB | Gehirn: WiFi + BLE 5, Kamera, 240 MHz, PSRAM für Stream | **16,70 €** | [Amazon.de](https://www.amazon.de/-/en/Ptdfjspt-ESP32-S3-Development-Bluetooth-ESP32-S3-WROOM-1-black/dp/B0F2QP1VTQ) |
+| <img src="../img/board_esp32s3.jpg" width="130"> | **ESP32-S3-WROOM-1 N16R8 CAM**, OV2640, 16 MB/8 MB | Gehirn: WiFi + BLE 5, Kamera, 240 MHz, PSRAM für Stream | **16,70 €** | [Amazon.de](https://www.amazon.de/-/en/Ptdfjspt-ESP32-S3-Development-Bluetooth-ESP32-S3-WROOM-1-black/dp/B0F2QP1VTQ) |
 | <img src="../img/drv8833.jpg" width="110"> | **DRV8833 Motortreiber** (2 Kanäle, 1,5 A) | TT-Motoren; kleiner und kühler als L298N, 3,3-V-Logik ok | **1,59 €** | [roboter-bausatz.de](https://www.roboter-bausatz.de/p/drv8833-dc-motor-treiber-modul-tb6612-alternative) |
 | <img src="../img/pcf8574.jpg" width="110"> | **PCF8574 I2C-Expander** (8 Eingänge) | Endschalter + IR-Lichtschranke, spart GPIO | **2,09 €** | [roboter-bausatz.de](https://www.roboter-bausatz.de/p/pcf8574-io-i2c-erweiterungsmodul) |
 | <img src="../img/pca9685.jpg" width="110"> | **PCA9685 16-Kanal Servo-Treiber** (I2C, 12 Bit) | Beide Servos + Reserve, eigene Servo-Stromschiene | **6,50 €** | [berrybase.de](https://www.berrybase.de/en/berrybase-16-channel-pwm-servo-driver-board-pca9685-i2c-12bit-1.6khz-3.3-5v) · [ab 4,00 € bei komputer.de](https://www.komputer.de) |

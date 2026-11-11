@@ -4,7 +4,7 @@ Steuerplattform für ein LEGO-Projekt: **2 Servos** (SG90 180° + 360°), **Schr
 
 > Kurzfassung: Ein **ESP32-S3-WROOM-1 N16R8 CAM** Board (57 × 28 mm, 5 V, WiFi + BLE 5, Kamera on-board) übernimmt alles. Steuerplattform **29,88 €**, komplettes Set **46,70 €** (Preise Stand 11.11.2026, ohne Versand).
 
-![ESP32-S3-CAM Board](img/board_esp32s3.png)
+![ESP32-S3-CAM Board](img/board_esp32s3.jpg)
 
 ## Anforderungen → Lösung
 
@@ -40,6 +40,7 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 | [docs/04-software-blockly.md](docs/04-software-blockly.md) | Die drei Software-Wege, Blockly-Architektur, Protokoll, Flashen |
 | [docs/05-mechanik-3d-druck.md](docs/05-mechanik-3d-druck.md) | LEGO-Kupplungen, 3D-Druck-Teile, Toleranzen, Montage |
 | [docs/06-erweiterungen.md](docs/06-erweiterungen.md) | Günstige Zusatzsensoren und -aktoren mit Preis |
+| [docs/07-3d-adapter.md](docs/07-3d-adapter.md) | Eigene 3D-Adapter (STL + OpenSCAD), Rendering-Bilder, geprüfte Fremdmodelle |
 
 ## Projektstatus
 
@@ -49,7 +50,8 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 - [ ] Board flashen (PlatformIO, Arduino-Framework)
 - [ ] Firmware v0.1: Web-UI + Kamera-Stream + Motor-/Sensor-API
 - [ ] Blockly-Blöcke im Web-UI
-- [ ] Mechanik: Servohorn-/Motor-Adapter drucken
+- [x] 3D-Adapter konstruiert (`hardware/3d/`, STL + parametrisches OpenSCAD)
+- [ ] Adapter drucken und Passung testen (Bohrungen ggf. nachziehen)
 
 ## Struktur
 
@@ -62,8 +64,11 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 │   ├── 03-verkabelung.md
 │   ├── 04-software-blockly.md
 │   ├── 05-mechanik-3d-druck.md
-│   └── 06-erweiterungen.md
-└── img/            Produktfotos (Quelle jeweils in der Einkaufsliste verlinkt)
+│   ├── 06-erweiterungen.md
+│   └── 07-3d-adapter.md
+├── hardware/3d/     Eigene Adapter: STL + parametrisches OpenSCAD
+├── tools/           Generator + Prüfung der Adapter (reines Python)
+└── img/             Produktfotos und Renderings (Quelle in der Einkaufsliste verlinkt)
 ```
 
 ## Hinweise
