@@ -4,7 +4,7 @@ Zwei Wege: **fertige Modelle** aus dem Netz (verlinkt, geprüft) und **eigene Ad
 
 ## Eigene Adapter: Klemmring → LEGO-Kreuzachse
 
-Alle drei Teile haben denselben Aufbau: unten ein **geschlitzter Klemmring** (48° Schlitz, damit PETG über die Welle federt), oben ein **Vierkant-Stecksockel** mit 4,95 mm Loch für die LEGO-Technic-Kreuzachse (4,8 mm über Kreuz). Der Sockel ist außen rund und geht direkt in den Ring über — kein Absatz, keine Stützstruktur nötig.
+Alle drei Teile haben denselben Aufbau (die Bilder unten sind Renderings der STL-Dateien, keine Produktfotos): unten ein **geschlitzter Klemmring** (48° Schlitz, damit PETG über die Welle federt), oben ein **Vierkant-Stecksockel** mit 4,95 mm Loch für die LEGO-Technic-Kreuzachse (4,8 mm über Kreuz). Der Sockel ist außen rund und geht direkt in den Ring über — kein Absatz, keine Stützstruktur nötig.
 
 | Teil | Datei | Bohrung | Außenmaß | Einsatz |
 |---|---|---|---|---|
