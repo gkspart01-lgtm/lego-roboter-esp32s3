@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="740" viewBox="0 0 1400 740" role="img" aria-label="Sensorverkabelung">
+<rect width="1400" height="740" fill="#0d1117"/>
+<text x="30.0" y="42.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" fill="#e6edf3" text-anchor="start" font-weight="600">Sensoren: Abstand, Lichtschranke, Endschalter</text>
+<text x="30.0" y="66.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">Zwei Teilbilder: HC-SR04 direkt am ESP32 (mit Teiler) · Schalter am PCF8574 über I2C.</text>
+<path d="M 686,96 L 686,700" fill="none" stroke="#30363d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" stroke-dasharray="6 6"/>
+<text x="40.0" y="108.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">A · Abstand (HC-SR04)</text>
+<rect x="40.0" y="130.0" width="240.0" height="300.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="52.0" y="152.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ESP32-S3-CAM</text>
+<text x="52.0" y="168.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">3,3 V tolerant</text>
+<rect x="273.0" y="219.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="267.0" y="230.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO42</text>
+<rect x="273.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="267.0" y="334.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO47</text>
+<rect x="93.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="100.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">5V</text>
+<rect x="153.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="160.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<rect x="430.0" y="110.0" width="240.0" height="220.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="442.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">HC-SR04</text>
+<text x="442.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">2-400 cm · 5 V</text>
+<rect x="423.0" y="193.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="443.0" y="204.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">TRIG</text>
+<rect x="423.0" y="233.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="443.0" y="244.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">ECHO</text>
+<rect x="456.0" y="260.0" width="54.0" height="46.0" rx="23" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<rect x="526.0" y="260.0" width="54.0" height="46.0" rx="23" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="483.0" y="288.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#6e7681" text-anchor="middle" font-weight="400">T</text>
+<text x="553.0" y="288.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#6e7681" text-anchor="middle" font-weight="400">R</text>
+<rect x="483.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="490.0" y="351.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">VCC</text>
+<rect x="543.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="550.0" y="351.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<path d="M 280.0,226.0 L 318.0,226.0 Q 330.0,226.0 330.0,214.0 L 330.0,212.0 Q 330.0,200.0 342.0,200.0 L 430.0,200.0" fill="none" stroke="#d29922" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="280.0" cy="226.0" r="3.4" fill="#d29922"/>
+<circle cx="430.0" cy="200.0" r="3.4" fill="#d29922"/>
+<rect x="314.6" y="194.5" width="30.8" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
+<text x="330.0" y="206.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#d29922" text-anchor="middle" font-weight="400">TRIG</text>
+<path d="M 344.0,240.0 L 351.0,245.0 L 358.0,235.0 L 365.0,245.0 L 372.0,235.0 L 379.0,245.0 L 386.0,235.0 L 386.0,240.0" fill="none" stroke="#bc8cff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<text x="365.0" y="224.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#bc8cff" text-anchor="middle" font-weight="400">1 kOhm</text>
+<path d="M 430.0,240.0 L 386.0,240.0" fill="none" stroke="#bc8cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<path d="M 344.0,240.0 L 344.0,318.0 Q 344.0,330.0 332.0,330.0 L 280.0,330.0" fill="none" stroke="#d29922" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="344.0" cy="240.0" r="3.4" fill="#d29922"/>
+<circle cx="280.0" cy="330.0" r="3.4" fill="#d29922"/>
+<path d="M 344.0,240.0 L 352.0,240.0" fill="none" stroke="#bc8cff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<path d="M 352.0,240.0 L 357.0,246.3 L 347.0,252.7 L 357.0,259.0 L 347.0,265.3 L 357.0,271.7 L 347.0,278.0 L 352.0,278.0" fill="none" stroke="#bc8cff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<text x="374.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#bc8cff" text-anchor="start" font-weight="400">2 kOhm</text>
+<path d="M 352.0,278.0 L 352.0,600.0" fill="none" stroke="#8b949e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="352.0" cy="278.0" r="3.4" fill="#8b949e"/>
+<circle cx="352.0" cy="600.0" r="3.4" fill="#8b949e"/>
+<text x="360.0" y="296.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">nach GND</text>
+<path d="M 100.0,430.0 L 100.0,528.0 Q 100.0,540.0 112.0,540.0 L 478.0,540.0 Q 490.0,540.0 490.0,528.0 L 490.0,330.0" fill="none" stroke="#f85149" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="100.0" cy="430.0" r="3.4" fill="#f85149"/>
+<circle cx="490.0" cy="330.0" r="3.4" fill="#f85149"/>
+<rect x="100.0" y="522.5" width="25.1" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
+<text x="104.0" y="534.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#f85149" text-anchor="start" font-weight="400">5 V</text>
+<path d="M 160.0,430.0 L 160.0,600.0" fill="none" stroke="#8b949e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="160.0" cy="430.0" r="3.4" fill="#8b949e"/>
+<circle cx="160.0" cy="600.0" r="3.4" fill="#8b949e"/>
+<path d="M 550.0,330.0 L 550.0,330.0 Q 550.0,330.0 550.0,342.0 L 550.0,600.0" fill="none" stroke="#8b949e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="550.0" cy="330.0" r="3.4" fill="#8b949e"/>
+<circle cx="550.0" cy="600.0" r="3.4" fill="#8b949e"/>
+<path d="M 100,600 L 560,600" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<text x="300.0" y="614.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<path d="M 40,646 L 64,646" stroke="#d29922" stroke-width="3.6" stroke-linecap="round"/>
+<text x="72.0" y="650.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">Digitalsignal</text>
+<path d="M 40,665 L 64,665" stroke="#bc8cff" stroke-width="3.6" stroke-linecap="round"/>
+<text x="72.0" y="669.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">Teiler 1k/2k</text>
+<path d="M 40,684 L 64,684" stroke="#f85149" stroke-width="3.6" stroke-linecap="round"/>
+<text x="72.0" y="688.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">5 V</text>
+<path d="M 40,703 L 64,703" stroke="#8b949e" stroke-width="3.6" stroke-linecap="round"/>
+<text x="72.0" y="707.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">GND</text>
+<text x="716.0" y="108.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">B · Schalter &amp; Lichtschranke</text>
+<rect x="716.0" y="130.0" width="220.0" height="300.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="728.0" y="152.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ESP32-S3-CAM</text>
+<text x="728.0" y="168.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">gleiches Board</text>
+<rect x="929.0" y="219.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="923.0" y="230.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO43</text>
+<rect x="929.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="923.0" y="334.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO44</text>
+<rect x="769.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="776.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">3V3</text>
+<rect x="829.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="836.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<rect x="1010.0" y="110.0" width="230.0" height="320.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="1022.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">PCF8574</text>
+<text x="1022.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">8 Eingänge · I2C 0x20</text>
+<rect x="1003.0" y="193.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1023.0" y="204.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">SDA</text>
+<rect x="1003.0" y="233.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1023.0" y="244.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">SCL</text>
+<rect x="1003.0" y="273.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1023.0" y="284.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">VCC</text>
+<rect x="1233.0" y="173.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1227.0" y="184.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">P0</text>
+<rect x="1233.0" y="203.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1227.0" y="214.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">P1</text>
+<rect x="1233.0" y="233.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1227.0" y="244.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">P2</text>
+<rect x="1233.0" y="263.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1227.0" y="274.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">P3</text>
+<rect x="1233.0" y="293.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1227.0" y="304.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">P4</text>
+<rect x="1063.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
+<text x="1070.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<path d="M 936.0,226.0 L 954.0,226.0 Q 966.0,226.0 966.0,214.0 L 966.0,212.0 Q 966.0,200.0 978.0,200.0 L 1010.0,200.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="936.0" cy="226.0" r="3.4" fill="#58a6ff"/>
+<circle cx="1010.0" cy="200.0" r="3.4" fill="#58a6ff"/>
+<path d="M 936.0,330.0 L 966.0,330.0 Q 978.0,330.0 978.0,318.0 L 978.0,252.0 Q 978.0,240.0 990.0,240.0 L 1010.0,240.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="936.0" cy="330.0" r="3.4" fill="#58a6ff"/>
+<circle cx="1010.0" cy="240.0" r="3.4" fill="#58a6ff"/>
+<rect x="953.5" y="288.5" width="25.1" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
+<text x="966.0" y="300.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#58a6ff" text-anchor="middle" font-weight="400">I2C</text>
+<path d="M 776.0,430.0 L 763.7,468.6 Q 760.0,480.0 772.0,480.0 L 928.0,480.0 Q 940.0,480.0 940.0,468.0 L 940.0,292.0 Q 940.0,280.0 952.0,280.0 L 1010.0,280.0" fill="none" stroke="#3fb950" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="776.0" cy="430.0" r="3.4" fill="#3fb950"/>
+<circle cx="1010.0" cy="280.0" r="3.4" fill="#3fb950"/>
+<rect x="760.0" y="462.5" width="36.5" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
+<text x="764.0" y="474.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#3fb950" text-anchor="start" font-weight="400">3,3 V</text>
+<rect x="1260.0" y="169.0" width="76.0" height="22.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1298.0" y="184.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">SW1</text>
+<path d="M 1240.0,180.0 L 1260.0,180.0" fill="none" stroke="#d29922" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<rect x="1260.0" y="199.0" width="76.0" height="22.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1298.0" y="214.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">SW2</text>
+<path d="M 1240.0,210.0 L 1260.0,210.0" fill="none" stroke="#d29922" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<rect x="1260.0" y="229.0" width="76.0" height="22.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1298.0" y="244.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">SW3</text>
+<path d="M 1240.0,240.0 L 1260.0,240.0" fill="none" stroke="#d29922" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<rect x="1260.0" y="259.0" width="76.0" height="22.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1298.0" y="274.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">SW4</text>
+<path d="M 1240.0,270.0 L 1260.0,270.0" fill="none" stroke="#d29922" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<rect x="1260.0" y="289.0" width="76.0" height="22.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
+<text x="1298.0" y="304.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">KY-010</text>
+<path d="M 1240.0,300.0 L 1260.0,300.0" fill="none" stroke="#d29922" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<path d="M 836.0,430.0 L 820.0,600.0" fill="none" stroke="#8b949e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="836.0" cy="430.0" r="3.4" fill="#8b949e"/>
+<circle cx="820.0" cy="600.0" r="3.4" fill="#8b949e"/>
+<path d="M 1070.0,430.0 L 1070.0,430.0 Q 1070.0,430.0 1070.0,442.0 L 1070.0,600.0" fill="none" stroke="#8b949e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="1070.0" cy="430.0" r="3.4" fill="#8b949e"/>
+<circle cx="1070.0" cy="600.0" r="3.4" fill="#8b949e"/>
+<path d="M 820,600 L 1080,600" fill="none" stroke="#8b949e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<text x="960.0" y="614.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<path d="M 716,646 L 740,646" stroke="#d29922" stroke-width="3.6" stroke-linecap="round"/>
+<text x="748.0" y="650.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">Schaltersignal</text>
+<path d="M 716,665 L 740,665" stroke="#58a6ff" stroke-width="3.6" stroke-linecap="round"/>
+<text x="748.0" y="669.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">I2C</text>
+<path d="M 716,684 L 740,684" stroke="#3fb950" stroke-width="3.6" stroke-linecap="round"/>
+<text x="748.0" y="688.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">3,3 V</text>
+<path d="M 716,703 L 740,703" stroke="#8b949e" stroke-width="3.6" stroke-linecap="round"/>
+<text x="748.0" y="707.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">GND</text>
+<text x="30.0" y="726.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10.5" fill="#6e7681" text-anchor="start" font-weight="400">Sensorkabel &lt; 30 cm halten. Endschalter gegen GND, Pull-up sitzt im PCF8574 - keine extra Widerstände.</text>
+</svg>

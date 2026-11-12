@@ -67,7 +67,8 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 │   ├── 06-erweiterungen.md
 │   └── 07-3d-adapter.md
 ├── hardware/3d/     Eigene Adapter: STL + parametrisches OpenSCAD
-├── tools/           Generator + Prüfung der Adapter (reines Python)
+├── tools/           Generatoren (Adapter, Verdrahtungsbilder) + SVG-Rasterizer
+├── img/wiring/      Pin-für-Pin-Verdrahtungsbilder (SVG)
 └── img/             Produktfotos und Renderings (Quelle in der Einkaufsliste verlinkt)
 ```
 
