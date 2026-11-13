@@ -21,6 +21,10 @@
 
 ![Pinout](../img/pinout.png)
 
+## Variante ohne Kamera
+
+Wenn die Kamera nicht gebraucht wird, ist ein **ESP32-S3-DevKitC-1 (WROOM-1 N8R2, ~10–13 €)** die bessere Wahl: alle 36 GPIOs auf Stiftleisten, dadurch fallen die Expander (PCA9685, PCF8574) weg und Servos wie Sensoren hängen direkt am Board. Pinplan und Bilder: [docs/03-verkabelung.md](03-verkabelung.md#4-variante-ohne-kamera-esp32-s3-devkitc-1).
+
 ## Verworfene Alternativen
 
 | Kandidat | Preis | Warum nicht |

@@ -4,6 +4,8 @@ Steuerplattform für ein LEGO-Projekt: **2 Servos** (SG90 180° + 360°), **Schr
 
 > Kurzfassung: Ein **ESP32-S3-WROOM-1 N16R8 CAM** Board (57 × 28 mm, 5 V, WiFi + BLE 5, Kamera on-board) übernimmt alles. Steuerplattform **29,88 €**, komplettes Set **46,70 €** (Preise Stand 11.11.2026, ohne Versand).
 
+> **Ohne Kamera?** Dann ein **ESP32-S3-DevKitC-1 (N8R2, ~10–13 €)** — alle 36 GPIOs auf Stiftleisten, keine Expander nötig (Pinplan: [docs/03-verkabelung.md](docs/03-verkabelung.md#4-variante-ohne-kamera-esp32-s3-devkitc-1)).
+
 ![ESP32-S3-CAM Board](img/board_esp32s3.jpg)
 
 ## Anforderungen → Lösung

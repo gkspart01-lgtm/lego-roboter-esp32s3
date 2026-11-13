@@ -1,32 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="960" viewBox="0 0 1200 960" role="img" aria-label="Motorverkabelung">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="960" viewBox="0 0 1200 960" role="img" aria-label="Motorverkabelung (Kamera-Variante)">
 <rect width="1200" height="960" fill="#0d1117"/>
 <text x="30.0" y="42.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" fill="#e6edf3" text-anchor="start" font-weight="600">Motoren: Schrittmotor, TT-Motor, zwei Servos</text>
 <text x="30.0" y="66.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">Pin für Pin vom ESP32-S3-CAM. Stromschienen rechts, Signale links.</text>
-<rect x="60.0" y="110.0" width="270.0" height="430.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-<text x="72.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ESP32-S3-CAM</text>
-<text x="72.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">N16R8 · Kamera: GPIO 4-18</text>
-<rect x="106.0" y="164.0" width="178.0" height="58.0" rx="4" fill="#0b0f14" stroke="#4b5563" stroke-width="1.5"/>
-<text x="195.0" y="200.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#8b949e" text-anchor="middle" font-weight="400">OV2640</text>
-<rect x="323.0" y="253.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="264.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO1</text>
-<rect x="323.0" y="283.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="294.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO2</text>
-<rect x="323.0" y="313.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="324.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO3</text>
-<rect x="323.0" y="343.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="354.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO14</text>
-<rect x="323.0" y="373.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="384.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO21</text>
-<rect x="323.0" y="403.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="414.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO41</text>
-<rect x="323.0" y="433.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="444.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO43</text>
-<rect x="323.0" y="463.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="317.0" y="474.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO44</text>
-<rect x="123.0" y="533.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="130.0" y="561.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">5V</text>
-<rect x="183.0" y="533.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="190.0" y="561.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<rect x="60.0" y="110.0" width="270.0" height="430.0" rx="9" fill="#1b4d2e" stroke="#2e7d43" stroke-width="2.4"/>
+<circle cx="69" cy="119" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="321" cy="119" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="69" cy="531" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="321" cy="531" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<text x="72.0" y="134.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#cfe8d8" text-anchor="start" font-weight="700">ESP32-S3-CAM</text>
+<text x="72.0" y="150.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#cfe8d8" text-anchor="start" font-weight="400">N16R8 · Kamera GPIO 4-18</text>
+<rect x="304.0" y="162.0" width="16.0" height="56.0" rx="3" fill="#133622" stroke-width="1.5"/>
+<rect x="76.0" y="162.0" width="196.0" height="56.0" rx="5" fill="#c9d1d9" stroke="#6e7681" stroke-width="1.4"/>
+<text x="174.0" y="186.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10.5" fill="#1f2328" text-anchor="middle" font-weight="700">ESP32-S3</text>
+<text x="174.0" y="202.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="8" fill="#57606a" text-anchor="middle" font-weight="400">WROOM-1 N16R8</text>
+<rect x="76.0" y="230.0" width="44.0" height="13.0" rx="3" fill="#d4a72c" stroke-width="1.5"/>
+<text x="76.0" y="258.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#cfe8d8" text-anchor="start" font-weight="400">OV2640 · GPIO 4-18</text>
+<rect x="184.0" y="532.0" width="22.0" height="8.0" rx="2" fill="#aeb6c0" stroke-width="1.5"/>
+<circle cx="72" cy="528" r="3" fill="#3fb950"/>
+<rect x="324.0" y="254.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="263.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO1</text>
+<rect x="324.0" y="284.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="293.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO2</text>
+<rect x="324.0" y="314.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="323.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO3</text>
+<rect x="324.0" y="344.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="353.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO14</text>
+<rect x="324.0" y="374.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="383.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO21</text>
+<rect x="324.0" y="404.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="413.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO41</text>
+<rect x="324.0" y="444.0" width="12.0" height="12.0" rx="2.5" fill="#58a6ff" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="453.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#58a6ff" text-anchor="end" font-weight="400">GPIO43</text>
+<rect x="324.0" y="474.0" width="12.0" height="12.0" rx="2.5" fill="#58a6ff" stroke="#0d1117" stroke-width="1"/>
+<text x="316.0" y="483.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#58a6ff" text-anchor="end" font-weight="400">GPIO44</text>
+<rect x="124.0" y="534.0" width="12.0" height="12.0" rx="2.5" fill="#f85149" stroke="#0d1117" stroke-width="1"/>
+<text x="130.0" y="558.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#f85149" text-anchor="middle" font-weight="400">5V</text>
+<rect x="184.0" y="534.0" width="12.0" height="12.0" rx="2.5" fill="#8b949e" stroke="#0d1117" stroke-width="1"/>
+<text x="190.0" y="558.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
 <rect x="430.0" y="110.0" width="340.0" height="230.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
 <text x="442.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ULN2003</text>
 <text x="442.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">Treiberplatine 28BYJ-48 · 5 V</text>
@@ -100,11 +110,11 @@
 <circle cx="430.0" cy="484.0" r="3.4" fill="#d29922"/>
 <rect x="362.6" y="354.5" width="70.7" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
 <text x="398.0" y="366.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#d29922" text-anchor="middle" font-weight="400">AIN1 / AIN2</text>
-<path d="M 330.0,440.0 L 406.0,440.0 Q 418.0,440.0 418.0,452.0 L 418.0,672.0 Q 418.0,684.0 424.0,684.0 L 430.0,684.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
-<circle cx="330.0" cy="440.0" r="3.4" fill="#58a6ff"/>
+<path d="M 330.0,450.0 L 406.0,450.0 Q 418.0,450.0 418.0,462.0 L 418.0,672.0 Q 418.0,684.0 424.0,684.0 L 430.0,684.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="330.0" cy="450.0" r="3.4" fill="#58a6ff"/>
 <circle cx="430.0" cy="684.0" r="3.4" fill="#58a6ff"/>
-<path d="M 330.0,470.0 L 412.0,470.0 Q 424.0,470.0 424.0,482.0 L 424.0,702.0 Q 424.0,714.0 427.0,714.0 L 430.0,714.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
-<circle cx="330.0" cy="470.0" r="3.4" fill="#58a6ff"/>
+<path d="M 330.0,480.0 L 412.0,480.0 Q 424.0,480.0 424.0,492.0 L 424.0,702.0 Q 424.0,714.0 427.0,714.0 L 430.0,714.0" fill="none" stroke="#58a6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
+<circle cx="330.0" cy="480.0" r="3.4" fill="#58a6ff"/>
 <circle cx="430.0" cy="714.0" r="3.4" fill="#58a6ff"/>
 <rect x="388.4" y="544.5" width="59.3" height="16.5" rx="3" fill="#0d1117" fill-opacity="0.95"/>
 <text x="418.0" y="556.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#58a6ff" text-anchor="middle" font-weight="400">I2C 43/44</text>

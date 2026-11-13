@@ -1,20 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="740" viewBox="0 0 1400 740" role="img" aria-label="Sensorverkabelung">
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="740" viewBox="0 0 1400 740" role="img" aria-label="Sensorverkabelung (Kamera-Variante)">
 <rect width="1400" height="740" fill="#0d1117"/>
 <text x="30.0" y="42.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" fill="#e6edf3" text-anchor="start" font-weight="600">Sensoren: Abstand, Lichtschranke, Endschalter</text>
 <text x="30.0" y="66.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">Zwei Teilbilder: HC-SR04 direkt am ESP32 (mit Teiler) · Schalter am PCF8574 über I2C.</text>
 <path d="M 686,96 L 686,700" fill="none" stroke="#30363d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="1.0" stroke-dasharray="6 6"/>
 <text x="40.0" y="108.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">A · Abstand (HC-SR04)</text>
-<rect x="40.0" y="130.0" width="240.0" height="300.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-<text x="52.0" y="152.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ESP32-S3-CAM</text>
-<text x="52.0" y="168.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">3,3 V tolerant</text>
-<rect x="273.0" y="219.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="267.0" y="230.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO42</text>
-<rect x="273.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="267.0" y="334.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO47</text>
-<rect x="93.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="100.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">5V</text>
-<rect x="153.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="160.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<rect x="40.0" y="130.0" width="240.0" height="300.0" rx="9" fill="#1b4d2e" stroke="#2e7d43" stroke-width="2.4"/>
+<circle cx="49" cy="139" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="271" cy="139" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="49" cy="421" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="271" cy="421" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<text x="52.0" y="154.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#cfe8d8" text-anchor="start" font-weight="700">ESP32-S3-CAM</text>
+<text x="52.0" y="170.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#cfe8d8" text-anchor="start" font-weight="400">N16R8</text>
+<rect x="254.0" y="182.0" width="16.0" height="56.0" rx="3" fill="#133622" stroke-width="1.5"/>
+<rect x="56.0" y="182.0" width="166.0" height="56.0" rx="5" fill="#c9d1d9" stroke="#6e7681" stroke-width="1.4"/>
+<text x="139.0" y="206.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10.5" fill="#1f2328" text-anchor="middle" font-weight="700">ESP32-S3</text>
+<text x="139.0" y="222.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="8" fill="#57606a" text-anchor="middle" font-weight="400">WROOM-1 N16R8</text>
+<rect x="56.0" y="250.0" width="44.0" height="13.0" rx="3" fill="#d4a72c" stroke-width="1.5"/>
+<text x="56.0" y="278.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#cfe8d8" text-anchor="start" font-weight="400">OV2640 · GPIO 4-18</text>
+<rect x="149.0" y="422.0" width="22.0" height="8.0" rx="2" fill="#aeb6c0" stroke-width="1.5"/>
+<circle cx="52" cy="418" r="3" fill="#3fb950"/>
+<rect x="274.0" y="220.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="266.0" y="229.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO42</text>
+<rect x="274.0" y="324.0" width="12.0" height="12.0" rx="2.5" fill="#d29922" stroke="#0d1117" stroke-width="1"/>
+<text x="266.0" y="333.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#d29922" text-anchor="end" font-weight="400">GPIO47</text>
+<rect x="94.0" y="424.0" width="12.0" height="12.0" rx="2.5" fill="#f85149" stroke="#0d1117" stroke-width="1"/>
+<text x="100.0" y="448.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#f85149" text-anchor="middle" font-weight="400">5V</text>
+<rect x="154.0" y="424.0" width="12.0" height="12.0" rx="2.5" fill="#8b949e" stroke="#0d1117" stroke-width="1"/>
+<text x="160.0" y="448.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
 <rect x="430.0" y="110.0" width="240.0" height="220.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
 <text x="442.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">HC-SR04</text>
 <text x="442.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">2-400 cm · 5 V</text>
@@ -70,17 +82,29 @@
 <path d="M 40,703 L 64,703" stroke="#8b949e" stroke-width="3.6" stroke-linecap="round"/>
 <text x="72.0" y="707.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">GND</text>
 <text x="716.0" y="108.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" fill="#8b949e" text-anchor="start" font-weight="400">B · Schalter &amp; Lichtschranke</text>
-<rect x="716.0" y="130.0" width="220.0" height="300.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-<text x="728.0" y="152.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">ESP32-S3-CAM</text>
-<text x="728.0" y="168.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">gleiches Board</text>
-<rect x="929.0" y="219.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="923.0" y="230.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO43</text>
-<rect x="929.0" y="323.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="923.0" y="334.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#8b949e" text-anchor="end" font-weight="400">GPIO44</text>
-<rect x="769.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="776.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">3V3</text>
-<rect x="829.0" y="423.0" width="14.0" height="14.0" rx="2" fill="#0b0f14" stroke="#4b5563" stroke-width="1"/>
-<text x="836.0" y="451.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
+<rect x="716.0" y="130.0" width="220.0" height="300.0" rx="9" fill="#1b4d2e" stroke="#2e7d43" stroke-width="2.4"/>
+<circle cx="725" cy="139" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="927" cy="139" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="725" cy="421" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<circle cx="927" cy="421" r="3.1" fill="#0d1117" stroke="#cfe8d8" stroke-width="1"/>
+<text x="728.0" y="154.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#cfe8d8" text-anchor="start" font-weight="700">ESP32-S3-CAM</text>
+<text x="728.0" y="170.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#cfe8d8" text-anchor="start" font-weight="400">gleiches Board</text>
+<rect x="910.0" y="182.0" width="16.0" height="56.0" rx="3" fill="#133622" stroke-width="1.5"/>
+<rect x="732.0" y="182.0" width="146.0" height="56.0" rx="5" fill="#c9d1d9" stroke="#6e7681" stroke-width="1.4"/>
+<text x="805.0" y="206.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10.5" fill="#1f2328" text-anchor="middle" font-weight="700">ESP32-S3</text>
+<text x="805.0" y="222.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="8" fill="#57606a" text-anchor="middle" font-weight="400">WROOM-1 N16R8</text>
+<rect x="732.0" y="250.0" width="44.0" height="13.0" rx="3" fill="#d4a72c" stroke-width="1.5"/>
+<text x="732.0" y="278.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#cfe8d8" text-anchor="start" font-weight="400">OV2640 · GPIO 4-18</text>
+<rect x="815.0" y="422.0" width="22.0" height="8.0" rx="2" fill="#aeb6c0" stroke-width="1.5"/>
+<circle cx="728" cy="418" r="3" fill="#3fb950"/>
+<rect x="930.0" y="220.0" width="12.0" height="12.0" rx="2.5" fill="#58a6ff" stroke="#0d1117" stroke-width="1"/>
+<text x="922.0" y="229.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#58a6ff" text-anchor="end" font-weight="400">GPIO43</text>
+<rect x="930.0" y="324.0" width="12.0" height="12.0" rx="2.5" fill="#58a6ff" stroke="#0d1117" stroke-width="1"/>
+<text x="922.0" y="333.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#58a6ff" text-anchor="end" font-weight="400">GPIO44</text>
+<rect x="770.0" y="424.0" width="12.0" height="12.0" rx="2.5" fill="#3fb950" stroke="#0d1117" stroke-width="1"/>
+<text x="776.0" y="448.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#3fb950" text-anchor="middle" font-weight="400">3V3</text>
+<rect x="830.0" y="424.0" width="12.0" height="12.0" rx="2.5" fill="#8b949e" stroke="#0d1117" stroke-width="1"/>
+<text x="836.0" y="448.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#8b949e" text-anchor="middle" font-weight="400">GND</text>
 <rect x="1010.0" y="110.0" width="230.0" height="320.0" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
 <text x="1022.0" y="132.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" fill="#e6edf3" text-anchor="start" font-weight="600">PCF8574</text>
 <text x="1022.0" y="148.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400">8 Eingänge · I2C 0x20</text>

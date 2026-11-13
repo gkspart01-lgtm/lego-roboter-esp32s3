@@ -1,6 +1,6 @@
 # 03 — Verkabelung & Strom
 
-Alle drei Bilder sind Pin-für-Pin-Zeichnungen (SVG in `img/wiring/`, erzeugt mit `tools/wiring.py`). Farben wie beim Jumper-Set: **rot = 5 V**, **grau = GND**, **orange = Signal**, **blau = I2C**, **grün = 3,3 V / Servo-PWM**, **lila = Spannungsteiler**. Kreuzung ohne Punkt heißt: keine Verbindung.
+Alle Bilder sind Pin-für-Pin-Zeichnungen (SVG in `img/wiring/`, erzeugt mit `tools/wiring.py`). Das Board ist als Platinenansicht gezeichnet — jeder benutzte Pin ist **farbcodiert** (Pin-Farbe = Funktion, gleiche Farbe wie die Leitung): **rot = 5 V**, **grau = GND**, **orange = Signal**, **blau = I2C**, **grün = 3,3 V**, **türkis = Servo-PWM**, **lila = Spannungsteiler**. Kreuzung ohne Punkt heißt: keine Verbindung. Zwei Varianten: mit Kamera (Abschnitte 1–3) und ohne Kamera (Abschnitt 4).
 
 ## 1. Stromverteilung
 
@@ -96,9 +96,45 @@ PCF8574 P0..P3        → Endschalter gegen GND
 PCF8574 P4            → KY-010 DO (KY-010 an 3,3 V)
 ```
 
+## 4. Variante ohne Kamera (ESP32-S3-DevKitC-1)
+
+Keine Kamera heißt: die 14 Kamera-Pins (GPIO 4–18) fallen weg. Statt des CAM-Boards nimmt man ein **ESP32-S3-DevKitC-1 (WROOM-1 N8R2)** (~10–13 €), bei dem **alle 36 GPIOs auf Stiftleisten** herausgeführt sind. Damit entfallen auch die beiden Expander (PCA9685 + PCF8574) — alles hängt direkt am Board:
+
+![Motorverkabelung ohne Kamera](../img/wiring/motoren_ohne_kamera.svg)
+
+| Vom ESP32 | zum Ziel | Leitung |
+|---|---|---|
+| GPIO 4, 5, 6, 7 | ULN2003 IN1–IN4 | orange |
+| GPIO 8, 9 | DRV8833 AIN1 / AIN2 | orange |
+| GPIO 12, 13 | SG90 SIG (LEDC, 50 Hz) | türkis |
+| 5V, GND | 5-V-/GND-Schiene | rot / grau |
+
+![Sensorverkabelung ohne Kamera](../img/wiring/sensoren_ohne_kamera.svg)
+
+| Vom ESP32 | zum Ziel | Leitung |
+|---|---|---|
+| GPIO 10 | HC-SR04 TRIG | orange |
+| GPIO 11 | HC-SR04 ECHO (über 1k/2k-Teiler) | orange / lila |
+| GPIO 14–17 | Endschalter (gegen GND, interne Pull-ups) | orange |
+| GPIO 18 | KY-010 DO | orange |
+
+**Pinplan ohne Kamera** (DevKitC-1, alles direkt):
+
+| Funktion | Pin |
+|---|---|
+| Schrittmotor IN1–IN4 | GPIO 4, 5, 6, 7 |
+| TT-Motor AIN1 / AIN2 | GPIO 8, 9 |
+| Servo 180° / 360° | GPIO 12 / 13 (LEDC-PWM, 50 Hz) |
+| HC-SR04 TRIG / ECHO | GPIO 10 / 11 (ECHO über Teiler) |
+| Endschalter 1–4 | GPIO 14–17 (INPUT_PULLUP) |
+| IR-Lichtschranke | GPIO 18 (VCC an 3,3 V) |
+| **frei** | GPIO 21, 35–42, 47, 48 (14 Pins) |
+
+**Unterschiede zur Kamera-Variante:** ~5 € günstiger (kein PCA9685, kein PCF8574), weniger Bauteile, kleiner. Dafür kein Kamerabild im Browser, kein I2C nötig, Servos direkt am Board. Meiden wie immer: GPIO 0 (Boot), 3/45/46 (Strapping), 19/20 (USB).
+
 ## Bilder selbst nachzeichnen
 
-`python3 tools/wiring.py` erzeugt alle drei SVGs neu und prüft dabei automatisch:
+`python3 tools/wiring.py` erzeugt alle fünf SVGs neu und prüft dabei automatisch:
 
 - jedes Kabelende sitzt auf einem Pin, einer Schiene oder einem definierten Knoten,
 - kein Kabel läuft durch ein Bauteil,

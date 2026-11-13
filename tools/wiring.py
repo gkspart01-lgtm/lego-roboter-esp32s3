@@ -1,8 +1,11 @@
 """Generate breadboard-style wiring diagrams as SVG (pin-to-pin, coloured wires).
 
 Fritzing is GUI-only and this host has no Qt/X, so the layout is built as data
-here and emitted as SVG. Self-checks: label collisions, canvas overflow, wire
-endpoints must sit on a pin/bus/rail, no wire may run through a board, XML.
+here and emitted as SVG. The MCU is drawn as a board (green PCB, metal shield,
+antenna keepout, camera FPC, USB-C) with colour-coded header pins.
+
+Self-checks: label collisions, canvas overflow, wire endpoints must sit on a
+pin/bus/rail, no wire may run through a board, XML parses.
 """
 
 import os
@@ -21,6 +24,17 @@ ORANGE = "#d29922"
 BLUE = "#58a6ff"
 GREEN = "#3fb950"
 PURPLE = "#bc8cff"
+TEAL = "#2dd4bf"
+
+# board look
+PCB_GREEN = "#1b4d2e"
+PCB_DARK = "#133622"
+PCB_STROKE = "#2e7d43"
+SILK = "#cfe8d8"
+SHIELD = "#c9d1d9"
+SHIELD_STROKE = "#6e7681"
+GOLD = "#d4a72c"
+SILVER = "#aeb6c0"
 
 MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 SANS = "system-ui, -apple-system, 'Segoe UI', sans-serif"
@@ -119,6 +133,12 @@ class Svg:
         self.path("M " + " L ".join(f"{a:.1f},{b:.1f}" for a, b in pts), color, 2.4)
         return pts[-1]
 
+    def rail(self, x, y0, y1, color, name):
+        self.rails.append((x, y0, y1))
+        self.path(f"M {x},{y0} L {x},{y1}", color, 5)
+        if name:
+            self.text(x + 10, y0 - 8, name, size=10.5, fill=color)
+
     # ------------------------------------------------------------------ pins
     def pins(self, x, y, w, names, side="right", step=26, top=52):
         out = {}
@@ -144,11 +164,44 @@ class Svg:
             self.pin_pts.append((px, y, n))
         return out
 
-    def rail(self, x, y0, y1, color, name):
-        self.rails.append((x, y0, y1))
-        self.path(f"M {x},{y0} L {x},{y1}", color, 5)
-        if name:
-            self.text(x + 10, y0 - 8, name, size=10.5, fill=color)
+    # ------------------------------------------------------- coloured pins
+    def cpin(self, px, py, name, color, side="right"):
+        """Colour-coded header pin (colour = function). Label sits inside the board."""
+        self.rect(px - 6, py - 6, 12, 12, color, "#0d1117", rx=2.5, sw=1)
+        if side == "right":
+            self.text(px - 14, py + 3.5, name, size=9, fill=color, anchor="end")
+        else:
+            self.text(px + 14, py + 3.5, name, size=9, fill=color, anchor="start")
+        self.pin_pts.append((px, py, name))
+        return (px, py)
+
+    def cpin_bottom(self, px, py, name, color):
+        self.rect(px - 6, py - 6, 12, 12, color, "#0d1117", rx=2.5, sw=1)
+        self.text(px, py + 18, name, size=8.5, fill=color, anchor="middle")
+        self.pin_pts.append((px, py, name))
+        return (px, py)
+
+    # -------------------------------------------------------------- the board
+    def pcb(self, x, y, w, h, title, sub, cam=False, chip="WROOM-1 N16R8"):
+        self.boxes.append((x, y, x + w, y + h, title))
+        self.rect(x, y, w, h, PCB_GREEN, PCB_STROKE, rx=9, sw=2.4)
+        for hx, hy in ((x + 9, y + 9), (x + w - 9, y + 9), (x + 9, y + h - 9), (x + w - 9, y + h - 9)):
+            self.parts.append(f'<circle cx="{hx}" cy="{hy}" r="3.1" fill="{BG}" stroke="{SILK}" stroke-width="1"/>')
+        self.text(x + 12, y + 24, title, size=13, fill=SILK, weight="700", mono=False)
+        self.text(x + 12, y + 40, sub, size=9.5, fill=SILK, mono=False)
+        # antenna keepout (right, at shield height)
+        self.rect(x + w - 26, y + 52, 16, 56, PCB_DARK, None, rx=3)
+        # metal module shield
+        shw = w - 74
+        self.rect(x + 16, y + 52, shw, 56, SHIELD, SHIELD_STROKE, rx=5, sw=1.4)
+        self.text(x + 16 + shw / 2, y + 76, "ESP32-S3", size=10.5, fill="#1f2328", anchor="middle", weight="700", mono=False)
+        self.text(x + 16 + shw / 2, y + 92, chip, size=8, fill="#57606a", anchor="middle", mono=False)
+        if cam:
+            self.rect(x + 16, y + 120, 44, 13, GOLD, None, rx=3)
+            self.text(x + 16, y + 148, "OV2640 · GPIO 4-18", size=8.5, fill=SILK)
+        # USB-C, power LED
+        self.rect(x + w / 2 - 11, y + h - 8, 22, 8, SILVER, None, rx=2)
+        self.parts.append(f'<circle cx="{x + 12}" cy="{y + h - 12}" r="3" fill="{GREEN}"/>')
 
     # ---------------------------------------------------------------- output
     def render(self):
@@ -244,7 +297,6 @@ def diagram_power():
     s.label(350, 104, "5 V", size=10.5, fill=RED, anchor="start")
     s.label(282, 124, "GND", size=10.5, fill=GREY, anchor="end")
 
-    # Puffer-Elko (Platten = Klemmen, keine Pins)
     s.node(420, 214)
     s.node(420, 238)
     s.wire([(330, 200), (420, 200), (420, 214)], PURPLE, 3, dots=False)
@@ -270,18 +322,20 @@ def diagram_power():
 
 # ---------------------------------------------------------------------------
 def diagram_motors():
-    s = Svg(1200, 960, "Motorverkabelung")
+    s = Svg(1200, 960, "Motorverkabelung (Kamera-Variante)")
     header(s, "Motoren: Schrittmotor, TT-Motor, zwei Servos",
            "Pin für Pin vom ESP32-S3-CAM. Stromschienen rechts, Signale links.")
 
     bx, by, bw, bh = 60, 110, 270, 430
-    s.box(bx, by, bw, bh, "ESP32-S3-CAM", "N16R8 · Kamera: GPIO 4-18")
-    s.rect(bx + 46, by + 54, 178, 58, PIN, PIN_STROKE, rx=4)
-    s.text(bx + 135, by + 90, "OV2640", size=10, fill=MUTED, anchor="middle")
+    s.pcb(bx, by, bw, bh, "ESP32-S3-CAM", "N16R8 · Kamera GPIO 4-18", cam=True)
 
-    esp = s.pins(bx, by, bw, ["GPIO1", "GPIO2", "GPIO3", "GPIO14", "GPIO21", "GPIO41",
-                              "GPIO43", "GPIO44"], side="right", step=30, top=150)
-    esp.update(s.pins_bottom(bx, by + bh, ["5V", "GND"], start=70, step=60))
+    esp = {}
+    for name, color, yy in [("GPIO1", ORANGE, 150), ("GPIO2", ORANGE, 180), ("GPIO3", ORANGE, 210),
+                            ("GPIO14", ORANGE, 240), ("GPIO21", ORANGE, 270), ("GPIO41", ORANGE, 300),
+                            ("GPIO43", BLUE, 340), ("GPIO44", BLUE, 370)]:
+        esp[name] = s.cpin(bx + bw, by + yy, name, color, side="right")
+    esp["5V"] = s.cpin_bottom(bx + 70, by + bh, "5V", RED)
+    esp["GND"] = s.cpin_bottom(bx + 130, by + bh, "GND", GREY)
 
     ux, uy = 430, 110
     s.box(ux, uy, 340, 230, "ULN2003", "Treiberplatine 28BYJ-48 · 5 V")
@@ -355,16 +409,19 @@ def diagram_motors():
 
 # ---------------------------------------------------------------------------
 def diagram_sensors():
-    s = Svg(1400, 740, "Sensorverkabelung")
+    s = Svg(1400, 740, "Sensorverkabelung (Kamera-Variante)")
     header(s, "Sensoren: Abstand, Lichtschranke, Endschalter",
            "Zwei Teilbilder: HC-SR04 direkt am ESP32 (mit Teiler) · Schalter am PCF8574 über I2C.")
     s.path("M 686,96 L 686,700", STROKE, 1.5, dash="6 6")
 
     # ---- Teilbild A ------------------------------------------------------
     s.text(40, 108, "A · Abstand (HC-SR04)", size=11.5, fill=MUTED, mono=False)
-    s.box(40, 130, 240, 300, "ESP32-S3-CAM", "3,3 V tolerant")
-    ea = s.pins(40, 130, 240, ["GPIO42", "GPIO47"], side="right", step=104, top=96)
-    ea.update(s.pins_bottom(40, 430, ["5V", "GND"], start=60, step=60))
+    s.pcb(40, 130, 240, 300, "ESP32-S3-CAM", "N16R8", cam=True)
+    ea = {}
+    ea["GPIO42"] = s.cpin(280, 226, "GPIO42", ORANGE, side="right")
+    ea["GPIO47"] = s.cpin(280, 330, "GPIO47", ORANGE, side="right")
+    ea["5V"] = s.cpin_bottom(100, 430, "5V", RED)
+    ea["GND"] = s.cpin_bottom(160, 430, "GND", GREY)
 
     hx, hy = 430, 110
     s.box(hx, hy, 240, 220, "HC-SR04", "2-400 cm · 5 V")
@@ -405,9 +462,12 @@ def diagram_sensors():
 
     # ---- Teilbild B ------------------------------------------------------
     s.text(716, 108, "B · Schalter & Lichtschranke", size=11.5, fill=MUTED, mono=False)
-    s.box(716, 130, 220, 300, "ESP32-S3-CAM", "gleiches Board")
-    eb = s.pins(716, 130, 220, ["GPIO43", "GPIO44"], side="right", step=104, top=96)
-    eb.update(s.pins_bottom(716, 430, ["3V3", "GND"], start=60, step=60))
+    s.pcb(716, 130, 220, 300, "ESP32-S3-CAM", "gleiches Board", cam=True)
+    eb = {}
+    eb["GPIO43"] = s.cpin(936, 226, "GPIO43", BLUE, side="right")
+    eb["GPIO44"] = s.cpin(936, 330, "GPIO44", BLUE, side="right")
+    eb["3V3"] = s.cpin_bottom(776, 430, "3V3", GREEN)
+    eb["GND"] = s.cpin_bottom(836, 430, "GND", GREY)
 
     qx, qy = 1010, 110
     s.box(qx, qy, 230, 320, "PCF8574", "8 Eingänge · I2C 0x20")
@@ -446,6 +506,183 @@ def diagram_sensors():
 
 
 # ---------------------------------------------------------------------------
+def diagram_no_cam_motors():
+    s = Svg(1200, 960, "Motorverkabelung (ohne Kamera)")
+    header(s, "Motoren ohne Kamera: ESP32-S3-DevKitC-1",
+           "Alle Pins direkt am Board - kein I2C-Expander nötig, Servos direkt über LEDC-PWM.")
+
+    bx, by, bw, bh = 40, 110, 250, 640
+    s.pcb(bx, by, bw, bh, "ESP32-S3-DevKitC-1", "WROOM-1 N8R2 · keine Kamera", cam=False, chip="WROOM-1 N8R2")
+
+    esp = {}
+    for name, color, yy in [("GPIO4", ORANGE, 100), ("GPIO5", ORANGE, 130), ("GPIO6", ORANGE, 160),
+                            ("GPIO7", ORANGE, 190), ("GPIO8", ORANGE, 320), ("GPIO9", ORANGE, 350),
+                            ("GPIO12", TEAL, 564), ("GPIO13", TEAL, 604)]:
+        esp[name] = s.cpin(bx + bw, by + yy, name, color, side="right")
+    esp["5V"] = s.cpin_bottom(bx + 70, by + bh, "5V", RED)
+    esp["GND"] = s.cpin_bottom(bx + 130, by + bh, "GND", GREY)
+
+    ux, uy = 430, 110
+    s.box(ux, uy, 340, 230, "ULN2003", "Treiberplatine 28BYJ-48 · 5 V")
+    ul = s.pins(ux, uy, 340, ["IN1", "IN2", "IN3", "IN4"], side="left", step=30, top=100)
+    s.rect(ux + 150, uy + 62, 150, 46, PIN, PIN_STROKE, rx=5)
+    s.text(ux + 225, uy + 82, "28BYJ-48", size=10, fill=W_WHITE, anchor="middle")
+    s.text(ux + 225, uy + 98, "~15 rpm", size=8.5, fill=DIM, anchor="middle")
+    ur = s.pins(ux, uy, 340, ["+5V", "GND"], side="right", step=40, top=64)
+
+    dx, dy = 430, 380
+    s.box(dx, dy, 340, 180, "DRV8833", "2 Kanäle · 1,5 A · Kanal B frei")
+    dr = s.pins(dx, dy, 340, ["AIN1", "AIN2"], side="left", step=30, top=50)
+    s.rect(dx + 150, dy + 62, 150, 46, PIN, PIN_STROKE, rx=5)
+    s.text(dx + 225, dy + 82, "TT-Motor", size=10, fill=W_WHITE, anchor="middle")
+    s.text(dx + 225, dy + 98, "3-6 V · 1:90", size=8.5, fill=DIM, anchor="middle")
+    drg = s.pins(dx, dy, 340, ["VM", "GND"], side="right", step=40, top=64)
+
+    sx, sy = 430, 600
+    s.box(sx, sy, 340, 250, "SG90 (direkt)", "PWM über LEDC · kein Treiber nötig")
+    sg = s.pins(sx, sy, 340, ["SIG1", "SIG2"], side="left", step=40, top=74)
+    s.rect(sx + 150, sy + 100, 150, 46, PIN, PIN_STROKE, rx=5)
+    s.text(sx + 225, sy + 120, "SG90 180° · GPIO12", size=8.5, fill=W_WHITE, anchor="middle")
+    s.rect(sx + 150, sy + 160, 150, 46, PIN, PIN_STROKE, rx=5)
+    s.text(sx + 225, sy + 180, "SG90 360° · GPIO13", size=8.5, fill=W_WHITE, anchor="middle")
+    sgp = s.pins(sx, sy, 340, ["V+", "GND"], side="right", step=40, top=64)
+
+    for i, g in enumerate(["GPIO4", "GPIO5", "GPIO6", "GPIO7"]):
+        s.wire([esp[g], ul[f"IN{i+1}"]], ORANGE, 3)
+    s.label(352, 196, "IN1-IN4", size=9.5, fill=ORANGE, plate=True)
+    s.wire([esp["GPIO8"], dr["AIN1"]], ORANGE, 3)
+    s.wire([esp["GPIO9"], dr["AIN2"]], ORANGE, 3)
+    s.label(398, 366, "AIN1 / AIN2", size=9.5, fill=ORANGE, plate=True)
+    s.wire([esp["GPIO12"], sg["SIG1"]], TEAL, 3)
+    s.wire([esp["GPIO13"], sg["SIG2"]], TEAL, 3)
+    s.label(398, 556, "Servo-PWM", size=9.5, fill=TEAL, plate=True)
+
+    s.rail(830, 80, 880, RED, "5 V")
+    s.rail(884, 96, 915, GREY, "GND")
+    for pos in (ur["+5V"], drg["VM"], sgp["V+"]):
+        s.wire([pos, (830, pos[1])], RED, 3.4)
+    for pos in (ur["GND"], drg["GND"], sgp["GND"]):
+        s.wire([pos, (884, pos[1])], GREY, 3)
+    s.wire([esp["5V"], (110, 880), (830, 880)], RED, 4)
+    s.wire([esp["GND"], (170, 915), (884, 915)], GREY, 4)
+
+    legend(s, 920, 180, [(ORANGE, "Motor-Signal"), (TEAL, "Servo-PWM (LEDC)"),
+                         (RED, "5 V"), (GREY, "GND")])
+    s.text(920, 340, "Hinweise", size=12.5, fill=W_WHITE, weight="600", mono=False)
+    for i, t in enumerate([
+        "· Kein Expander, kein Servo-Board:",
+        "  Servos direkt an GPIO12/13 (LEDC,",
+        "  50 Hz, 0-180°).",
+        "· 14 Pins bleiben frei (GPIO 21,",
+        "  35-42, 47, 48 ...).",
+        "· ULN2003 an 3,3 V: Schrittrate",
+        "  moderat halten (~600 Hz).",
+        "· Kreuzung ohne Punkt = keine",
+        "  Verbindung.",
+    ]):
+        s.text(920, 366 + i * 20, t, size=9.5, fill=MUTED, mono=False)
+
+    footer(s, "Servos an die 5-V-Schiene (V+), nicht an den 3,3-V-Pin des Boards.")
+    return s
+
+
+# ---------------------------------------------------------------------------
+def diagram_no_cam_sensors():
+    s = Svg(1400, 740, "Sensorverkabelung (ohne Kamera)")
+    header(s, "Sensoren ohne Kamera: alles direkt am ESP32-S3-DevKitC-1",
+           "Kein PCF8574 nötig - Endschalter und Lichtschranke direkt an GPIO, mit internen Pull-ups.")
+    s.path("M 686,96 L 686,700", STROKE, 1.5, dash="6 6")
+
+    # ---- Teilbild A ------------------------------------------------------
+    s.text(40, 108, "A · Abstand (HC-SR04)", size=11.5, fill=MUTED, mono=False)
+    s.pcb(40, 130, 250, 300, "ESP32-S3-DevKitC-1", "WROOM-1 N8R2", cam=False, chip="WROOM-1 N8R2")
+    ea = {}
+    ea["GPIO10"] = s.cpin(290, 226, "GPIO10", ORANGE, side="right")
+    ea["GPIO11"] = s.cpin(290, 330, "GPIO11", ORANGE, side="right")
+    ea["5V"] = s.cpin_bottom(110, 430, "5V", RED)
+    ea["GND"] = s.cpin_bottom(170, 430, "GND", GREY)
+
+    hx, hy = 430, 110
+    s.box(hx, hy, 240, 220, "HC-SR04", "2-400 cm · 5 V")
+    hp = s.pins(hx, hy, 240, ["TRIG", "ECHO"], side="left", step=40, top=90)
+    s.rect(hx + 26, hy + 150, 54, 46, PIN, PIN_STROKE, rx=23)
+    s.rect(hx + 96, hy + 150, 54, 46, PIN, PIN_STROKE, rx=23)
+    s.text(hx + 53, hy + 178, "T", size=8.5, fill=DIM, anchor="middle")
+    s.text(hx + 123, hy + 178, "R", size=8.5, fill=DIM, anchor="middle")
+    hg = s.pins_bottom(hx, hy + 220, ["VCC", "GND"], start=60, step=60)
+
+    s.wire([ea["GPIO10"], (340, ea["GPIO10"][1]), (340, hp["TRIG"][1]), hp["TRIG"]], ORANGE, 3)
+    s.label(340, 206, "TRIG", size=9.5, fill=ORANGE, plate=True)
+
+    ny = hp["ECHO"][1]
+    s.resistor(344, ny, length=42)
+    s.label(365, ny - 16, "1 kOhm", size=9.5, fill=PURPLE)
+    s.wire([hp["ECHO"], (386, ny)], PURPLE, 3, dots=False)
+    s.node(386, ny)
+    s.node(344, ny)
+    s.node(352, ny)
+    s.node(352, ny + 38)
+    s.wire([(344, ny), (344, ea["GPIO11"][1]), ea["GPIO11"]], ORANGE, 3)
+    s.wire([(344, ny), (352, ny)], PURPLE, 3, dots=False)
+    s.resistor(352, ny, length=38, vertical=True)
+    s.label(374, ny + 24, "2 kOhm", size=9.5, fill=PURPLE, anchor="start")
+    s.wire([(352, ny + 38), (352, 600)], GREY, 2.6)
+    s.label(360, ny + 56, "nach GND", size=9.5, fill=GREY, anchor="start")
+
+    s.wire([ea["5V"], (110, 540), (490, 540), (490, hy + 220)], RED, 3.4)
+    s.label(114, 534, "5 V", size=9.5, fill=RED, anchor="start", plate=True)
+    s.wire([ea["GND"], (170, 600)], GREY, 2.8)
+    s.wire([hg["GND"], (550, hy + 220), (550, 600)], GREY, 2.8)
+    s.busline(600, 110, 560, GREY, 3)
+    s.label(310, 614, "GND", size=9, fill=GREY)
+
+    legend(s, 40, 650, [(ORANGE, "Digitalsignal"), (PURPLE, "Teiler 1k/2k"),
+                        (RED, "5 V"), (GREY, "GND")], size=9.5, gap=19)
+
+    # ---- Teilbild B ------------------------------------------------------
+    s.text(716, 108, "B · Schalter & Lichtschranke (direkt)", size=11.5, fill=MUTED, mono=False)
+    s.pcb(716, 130, 250, 300, "ESP32-S3-DevKitC-1", "WROOM-1 N8R2", cam=False, chip="WROOM-1 N8R2")
+    eb = {}
+    for i, name in enumerate(["GPIO14", "GPIO15", "GPIO16", "GPIO17"]):
+        eb[name] = s.cpin(966, 226 + i * 30, name, ORANGE, side="right")
+    eb["GPIO18"] = s.cpin(966, 346, "GPIO18", ORANGE, side="right")
+    eb["3V3"] = s.cpin_bottom(776, 430, "3V3", GREEN)
+    eb["GND"] = s.cpin_bottom(836, 430, "GND", GREY)
+
+    for i in range(4):
+        yy = 226 + i * 30
+        s.rect(1010, yy - 11, 76, 22, PIN, PIN_STROKE, rx=4)
+        s.text(1048, yy + 4, f"SW{i+1}", size=9, fill=MUTED, anchor="middle")
+        s.node(1010, yy)
+        s.wire([eb[f"GPIO{14+i}"], (1010, yy)], ORANGE, 2.6, dots=False)
+    yy = 346
+    s.rect(1010, yy - 11, 76, 22, PIN, PIN_STROKE, rx=4)
+    s.text(1048, yy + 4, "KY-010", size=9, fill=MUTED, anchor="middle")
+    s.node(1010, yy)
+    s.wire([eb["GPIO18"], (1010, yy)], ORANGE, 2.6, dots=False)
+
+    s.wire([eb["GND"], (850, 600)], GREY, 2.8)
+    for i in range(4):
+        yy = 226 + i * 30
+        s.node(1086, yy)
+        s.node(1100, yy)
+        s.wire([(1086, yy), (1100, yy)], GREY, 2.2)
+    s.node(1086, 346)
+    s.node(1100, 346)
+    s.wire([(1086, 346), (1100, 346)], GREY, 2.2)
+    s.wire([(1100, 226), (1100, 600)], GREY, 2.2)
+    s.busline(600, 850, 1100, GREY, 3)
+    s.label(960, 614, "GND", size=9, fill=GREY)
+    s.text(1010, 400, "Schalter gegen GND (Pull-up intern im Board)", size=9, fill=MUTED, mono=False)
+    s.text(1010, 416, "KY-010: VCC an 3,3 V · DO an GPIO18", size=9, fill=MUTED, mono=False)
+
+    legend(s, 716, 650, [(ORANGE, "Schaltersignal"), (GREEN, "3,3 V"), (GREY, "GND")], size=9.5, gap=19)
+
+    footer(s, "Interne Pull-ups aktivieren (INPUT_PULLUP). KY-010 VCC an 3,3 V, GND an GND.")
+    return s
+
+
+# ---------------------------------------------------------------------------
 def main():
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "img", "wiring")
     os.makedirs(out, exist_ok=True)
@@ -454,7 +691,9 @@ def main():
     total = 0
     for name, fn in (("strom.svg", diagram_power),
                      ("motoren.svg", diagram_motors),
-                     ("sensoren.svg", diagram_sensors)):
+                     ("sensoren.svg", diagram_sensors),
+                     ("motoren_ohne_kamera.svg", diagram_no_cam_motors),
+                     ("sensoren_ohne_kamera.svg", diagram_no_cam_sensors)):
         svg = fn()
         problems = svg.check_labels() + svg.check_wiring()
         path = os.path.join(out, name)
