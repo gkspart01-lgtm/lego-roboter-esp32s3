@@ -1,5 +1,7 @@
 # 04 — Software & Blockly
 
+> **Standard ist die Variante ohne Kamera.** Die Kamera-Spalten und -Bibliotheken (`esp32-camera`, MJPEG-Stream) betreffen nur die Kamera-Variante (2. Wahl); ohne Kamera läuft dieselbe Firmware einfach ohne Stream und ohne `esp32-camera`.
+
 ## Die drei Wege im Vergleich
 
 | | **Weg A — eigene Firmware + Web-UI** *(Empfehlung)* | **Weg B — BIPES** | **Weg C — Mixly / Arduinoblocks** |
