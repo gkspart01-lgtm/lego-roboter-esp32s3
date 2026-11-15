@@ -5,8 +5,8 @@ Steuerplattform für ein LEGO-Projekt: **2 Servos** (SG90 180° + 360°), **Schr
 > Kurzfassung: Ein **ESP32-S3-DevKitC-1** (62,7 × 25,4 mm, 5 V, WiFi + BLE 5, alle 36 GPIOs auf Stiftleisten) übernimmt alles — **ohne Expander**, Servos und Sensoren direkt am Board. Steuerplattform **~17,60 €**, komplettes Set **~43,40 €** (Preise Stand 11.11.2026, ohne Versand).
 
 > **Mit Kamera (2. Wahl)?** Dann ESP32-S3-WROOM-1 N16R8 CAM + PCA9685 + PCF8574, Aufpreis ~12 € (Pinplan: [docs/03-verkabelung.md](docs/03-verkabelung.md#3-variante-mit-kamera-2-wahl)).
-
-![ESP32-S3-CAM Board](img/board_esp32s3.jpg)
+>
+> ![ESP32-S3-CAM Board (optionale Kamera-Variante)](img/board_esp32s3.jpg)
 
 ## Anforderungen → Lösung
 
@@ -46,6 +46,7 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 | [docs/06-erweiterungen.md](docs/06-erweiterungen.md) | Günstige Zusatzsensoren und -aktoren mit Preis |
 | [docs/07-3d-adapter.md](docs/07-3d-adapter.md) | Eigene 3D-Adapter (STL + OpenSCAD), Rendering-Bilder, geprüfte Fremdmodelle |
 | [docs/08-steckverbinder.md](docs/08-steckverbinder.md) | Steckverbinder Board↔Aktoren/Sensoren: Kriterien, Vergleich, Empfehlung |
+| [docs/09-systeme-im-vergleich.md](docs/09-systeme-im-vergleich.md) | LEGO-Mindstorms, Power Functions, Powered Up, DUPLO, Geekservo und Open-Source-Alternativen mit Bildern und Preisen |
 
 ## Projektstatus
 
@@ -71,7 +72,8 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 │   ├── 05-mechanik-3d-druck.md
 │   ├── 06-erweiterungen.md
 │   ├── 07-3d-adapter.md
-│   └── 08-steckverbinder.md
+│   ├── 08-steckverbinder.md
+│   └── 09-systeme-im-vergleich.md
 ├── hardware/3d/     Eigene Adapter: STL + parametrisches OpenSCAD
 ├── tools/           Generatoren (Adapter, Verdrahtungsbilder) + SVG-Rasterizer
 ├── img/wiring/      Pin-für-Pin-Verdrahtungsbilder (SVG)
