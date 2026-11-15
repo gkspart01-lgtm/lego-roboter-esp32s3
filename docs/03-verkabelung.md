@@ -164,7 +164,7 @@ PCF8574 P4            → KY-010 DO (KY-010 an 3,3 V)
 
 ## Steckverbinder statt fester Lötung
 
-Wie Board und Aktoren/Sensoren steckbar verbunden werden (JST-XH-Empfehlung, Verpolungsschutz, Verlängerung, Kinderfreundlichkeit): [docs/08-steckverbinder.md](08-steckverbinder.md).
+Wie Board und Aktoren/Sensoren steckbar verbunden werden: [08 — Steckverbinder-Grundsatz](08-steckverbinder.md). Die konkrete Polzahl, Pinfolge und Kompatibilität gleicher Polzahlen steht in [10 — Steckerbelegung](10-steckerbelegung.md).
 
 ## Bilder selbst nachzeichnen
 

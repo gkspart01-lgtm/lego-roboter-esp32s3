@@ -32,6 +32,8 @@ Steuerplattform für ein LEGO-Projekt: **2 Servos** (SG90 180° + 360°), **Schr
 | **Komplett ohne Kamera** | **~43,40 €** |
 | + Kamera-Erweiterung (CAM-Board + PCA9685 + PCF8574) | + **~12,00 €** |
 
+> Die ~43,40 € enthalten nur das XH-Steckerset. Für die XH/PH-Trennung aus [docs/10-steckerbelegung.md](docs/10-steckerbelegung.md) kommt ein PH-Sortiment hinzu; dessen Preis ist noch nicht eingerechnet.
+
 Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufsliste.md)**
 
 ## Dokumentation
@@ -47,6 +49,7 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 | [docs/07-3d-adapter.md](docs/07-3d-adapter.md) | Eigene 3D-Adapter (STL + OpenSCAD), Rendering-Bilder, geprüfte Fremdmodelle |
 | [docs/08-steckverbinder.md](docs/08-steckverbinder.md) | Steckverbinder Board↔Aktoren/Sensoren: Kriterien, Vergleich, Empfehlung |
 | [docs/09-systeme-im-vergleich.md](docs/09-systeme-im-vergleich.md) | LEGO-Mindstorms, Power Functions, Powered Up, DUPLO, Geekservo und Open-Source-Alternativen mit Bildern und Preisen |
+| [docs/10-steckerbelegung.md](docs/10-steckerbelegung.md) | Steckerplan pro Motor/Sensor, Pinzahl, Belegung und Kompatibilität gleicher Polzahlen |
 
 ## Projektstatus
 
@@ -73,7 +76,8 @@ Details mit Links und Bildern: **[docs/02-einkaufsliste.md](docs/02-einkaufslist
 │   ├── 06-erweiterungen.md
 │   ├── 07-3d-adapter.md
 │   ├── 08-steckverbinder.md
-│   └── 09-systeme-im-vergleich.md
+│   ├── 09-systeme-im-vergleich.md
+│   └── 10-steckerbelegung.md
 ├── hardware/3d/     Eigene Adapter: STL + parametrisches OpenSCAD
 ├── tools/           Generatoren (Adapter, Verdrahtungsbilder) + SVG-Rasterizer
 ├── img/wiring/      Pin-für-Pin-Verdrahtungsbilder (SVG)

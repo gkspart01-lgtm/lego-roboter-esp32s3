@@ -16,7 +16,7 @@ Zwei Ebenen, die man nicht verwechseln sollte:
 Gibt es fertige Verlängerungskabel oder Pigtails in 10/20/50 cm? Muss man für jede Länge neu crimpen?
 
 ### 4. Universalität
-Ein Steckertyp für alles klingt schön, **kollidiert aber mit dem Verpolungsschutz**: Wenn alle Stecker gleich aussehen, steckt man den Servo in den I2C-Port. Die Lösung ist nicht "ein Stecker für alles", sondern **ein Raster (2,5 mm) mit unterschiedlichen Polzahlen je Funktion**.
+Ein Steckertyp für alles klingt schön, **kollidiert aber mit dem Verpolungs- und Verwechslungsschutz**: gleiche Steckergehäuse lassen sich funktionsfalsch zusammenstecken. Für dieses Projekt nutzen wir deshalb zwei mechanisch getrennte JST-Serien: XH (2,5 mm) für Aktoren, PH (2,0 mm) für Sensoren/Schalter. Innerhalb jeder Serie helfen verschiedene Polzahlen weiter — sie ersetzen aber keine Pinbelegungs-Kennzeichnung.
 
 ### 5. Komplexität
 Arbeitsschritte pro Verbindung: abisolieren, crimpen, löten, aufschrumpfen. Wie viel Werkzeug, wie hoch die Fehlerquote?
@@ -67,19 +67,21 @@ Kann man mit Multimeter/Oszi noch bequem messen? Verkleidete Stecker = kindersic
 
 **Stufe 0 — Bench (Entwicklung):** Dupont-Jumper. Schnell, billig, aber nur am Tisch. Vor dem finalen Aufbau ersetzen.
 
-**Stufe 1 — final (Standard):** **JST-XH 2,5 mm** als einheitliches Raster für alles. Codierte Gehäuse (Verpolungsschutz), ~3 A (reicht für Servo/Motor-Spitzen), Pigtails in 10/20/50 cm (Verlängerung ohne Crimpen), Cent-Preise. Verwechslungsschutz über **unterschiedliche Polzahlen**:
+**Stufe 1 — final (Standard):** JST in zwei mechanisch getrennten Familien: **XH 2,5 mm für Aktoren** (Servo, DC-Motor) und **PH 2,0 mm für Sensoren/Schalter**. Dadurch passen Motor-/Servo-Stecker nicht in die Sensorbuchsen. Der ULN2003 behält den vorhandenen 5-poligen Stepper-Stecker; die Powerbank bleibt USB-A und geht fest auf die Stromverteilung. Das kostet etwas mehr als nur XH, verhindert aber mehr Fehlsteckungen. Die genaue Kontaktbelegung und welche Stecker wirklich austauschbar sind: [docs/10-steckerbelegung.md](10-steckerbelegung.md).
 
-| Verbindung | Polzahl | Belegung (Pin 1 = GND/dunkle Ader) |
+| Verbindung | Serie / Polzahl | Belegung (Pin 1 entsprechend markiert) |
 |---|---|---|
-| SG90-Servo | 3-pol | GND · 5V · SIG |
-| HC-SR04 | 4-pol | GND · ECHO · TRIG · VCC |
-| KY-010 | 3-pol | GND · DO · VCC |
-| Endschalter | 2-pol | GND · Signal |
-| Stepper IN1–IN4 | 4-pol | IN1 · IN2 · IN3 · IN4 |
-| TT-Motor (ab DRV8833) | 2-pol | M+ · M− |
-| Powerbank-Eingang | XT30 oder Schraubklemme | — |
+| SG90-Servo | XH, 3-pol | GND · 5V · SIG |
+| HC-SR04 | PH, 4-pol | GND · ECHO · TRIG · VCC |
+| KY-010 | PH, 3-pol | GND · 3V3 · DO |
+| Endschalter | PH, 2-pol | GND · Signal |
+| 28BYJ-48 ↔ ULN2003 | Originalstecker, 5-pol | Werksbelegung beibehalten |
+| TT-Motor ab DRV8833 | XH, 2-pol | AOUT1 · AOUT2 |
+| Powerbank | USB-A auf feste Stromverteilung | +5V · GND, kein JST in der Hauptzuleitung |
 
-**Stufe 2 — kindersicher:** JST-XH **plus** drei Zutaten:
+**Wichtig:** Unterschiedliche Polzahlen verhindern nur manche Fehlsteckungen. Zwei JST-XH-3-Stecker (z. B. Servo und WS2812-LED) passen mechanisch ineinander, obwohl sie elektrisch verschieden belegt sind. PH-Sensoren passen nicht in XH-Aktoren, aber gleichpolige PH-Sensoren können weiterhin falsch gesteckt werden. Die konkrete Polfolge und Austauschbarkeit steht in [docs/10-steckerbelegung.md](10-steckerbelegung.md).
+
+**Stufe 2 — kindersicher:** JST-XH für Aktoren + JST-PH für Sensoren **plus** drei Zutaten:
 1. **Farb-/Positionscodierung**: eine Aderfarbe = eine Funktion, Etiketten/Bilder am Stecker.
 2. **Zugentlastung**: Kabelbinder am Gehäuse, Schrumpfschlauch über dem Crimp.
 3. **Elektrischer Verpolungsschutz am Power-Eingang** (gilt für beide Varianten):
@@ -89,26 +91,26 @@ Kann man mit Multimeter/Oszi noch bequem messen? Verkleidete Stecker = kindersic
 
 ## Konkrete Antworten auf deine Punkte
 
-- **Kinderfreundlich** → JST-XH codiert + Zugentlastung; Dupont raus, blanke Pins unter Schrumpfschlauch.
-- **Verpolungsschutz** → mechanisch über die XH-Nase + Polzahl; elektrisch über P-MOSFET/Polyfuse am Eingang.
-- **Verlängerung** → fertige XH-Pigtails; wer selbst crimpt, nimmt das 230-Stk.-Set + SN-28B-Zange.
-- **Universalität** → ein Raster (2,5 mm), aber bewusst verschiedene Polzahlen statt eines Universal-Steckers.
-- **Komplexität** → ohne Crimpen (Pigtails) nur abisolieren + löten; mit Crimpen ein zusätzlicher Schritt pro Ader.
-- **Kosten** → XH-Kit ~9 € einmalig, danach Cent-Beträge pro Stecker; Pigtails ~6 €.
+- **Kinderfreundlich** → XH-Aktoren und PH-Sensoren passen nicht ineinander; dazu Zugentlastung, Portbeschriftung und keine offenen Pins.
+- **Verpolungsschutz** → mechanisch durch XH/PH-Familien, Stecker-Nase und Polzahl; elektrisch über P-MOSFET/Polyfuse am Versorgungseingang.
+- **Verlängerung** → passende XH- oder PH-Pigtails; beim Selbstcrimpen Serien und Crimpkontakte nicht mischen.
+- **Universalität** → ein Stecksystem mit zwei JST-Serien nach Funktion; Polzahl und Pinfolge je Port eindeutig festlegen.
+- **Komplexität** → Pigtails, wenn keine Crimpzange gewünscht ist; zwei Familien erhöhen aber den Sortieraufwand.
+- **Kosten** → das vorhandene XH-Kit kostet ~9 €; das zusätzliche PH-Sortiment ist noch nicht eingepreist.
 
 ## Fazit
 
 | Kriterium | Lösung |
 |---|---|
-| Raster | JST-XH 2,5 mm (einheitlich) |
-| Verpolungsschutz | XH-Nase + Polzahl-Codierung + P-MOSFET/Polyfuse am Eingang |
-| Verlängerung | fertige Pigtails (oder Set + Crimpzange) |
-| Universalität | ein Raster, Polzahl je Funktion |
+| Raster | JST-XH 2,5 mm für Aktoren; JST-PH 2,0 mm für Sensoren; Stepperstecker ab Werk |
+| Verpolungsschutz | XH/PH-Familien getrennt + Polzahl-Codierung + P-MOSFET/Polyfuse am Eingang |
+| Verlängerung | passende Pigtails je Serie (oder Set + Crimpzange) |
+| Universalität | JST-Familie, getrennte Serien nach Strom/Funktion und Polzahl je Port |
 | Komplexität | Pigtails, wenn keine Crimpzange gewünscht |
-| Kosten | ~9 € Kit, Cent/Stecker |
-| Kindersicher | Codierung + Zugentlastung + Schrumpfschlauch |
-| Strom | XH 3 A deckt Servo/Motor-Spitzen ab |
-| I2C später | Qwiic/STEMMA QT (JST-SH) als Add-on, oder XH 4-pol |
-| Power-Zuleitung | XT30 mit P-MOSFET-Verpolschutz + Polyfuse |
+| Kosten | ~9 € XH-Kit, PH-Kit zusätzlich und noch nicht eingepreist |
+| Kindersicher | Seriencodierung + Beschriftung + Zugentlastung + Schrumpfschlauch |
+| Strom | XH für Servo/Motor; Versorgung direkt über feste Verteilung |
+| I2C später | eigener JST-SH/Qwiic-Anschluss, nicht auf HC-SR04-PH4 stecken |
+| Power-Zuleitung | Powerbank-USB-A an feste Stromverteilung; bei Akku separat absichern/codieren |
 
-Einzige Ausnahme von der XH-Regel: Die **Powerbank-Zuleitung** als XT30 oder Schraubklemme — die muss mehr Strom, ist aber kein "Steckplatz", den ein Kind ständig zieht.
+Die **Powerbank-Zuleitung** bleibt USB-A und endet fest an der Stromverteilung. Nur bei einem späteren Rohakku wäre ein eigener, verpolungssicherer Hochstromstecker (z. B. XT30) statt JST-PH/XH angebracht.

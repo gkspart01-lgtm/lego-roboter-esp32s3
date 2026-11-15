@@ -30,11 +30,12 @@ Servos laufen **direkt am Board** (GPIO 12/13, LEDC-PWM), Endschalter und Lichts
 
 ## C) Steckverbinder & Verkabelung (neu) — ab ~6 €
 
-Details und Begründung: [docs/08-steckverbinder.md](08-steckverbinder.md). Empfehlung: **JST-XH 2,5 mm** (codiert, billig, verlängerbar, 3 A) für alle Aktoren/Sensoren.
+Details zur konkreten Polzahl und Pinbelegung: [docs/10-steckerbelegung.md](10-steckerbelegung.md). Das vorhandene XH-Set deckt die Aktor-Seite ab; für die dort empfohlene mechanische Trennung (XH für Aktoren, PH 2,0 mm für Sensoren) ist zusätzlich ein PH-Sortiment nötig. Dieser Zusatz ist **nicht** in den Summen unten eingerechnet.
 
 | Bauteil | Preis | Hinweis |
 |---|---|---|
 | **JST-XH-Set 2/3/4/5-polig** (Stecker + Buchsen + Crimpkontakte, ~230–250 Stk.) | **~9,00 €** | [botland](https://botland.de/steckverbinder-254-mm-raster/19558-satz-justpi-jst-xh254-2-3-4-5-pin-stecker-mannlich-weiblich-und-weibliche-pins-fur-das-buchsengehause-230-stk-5904422328559.html) · eBay/Amazon |
+| **JST-PH-Set 2/3/4-polig** (optional, Sensor-/Logikseite) | Preis vor Bestellung zu prüfen | Nur nötig, wenn XH-Aktoren und PH-Sensoren mechanisch getrennt werden sollen; nicht in den Gesamtsummen enthalten |
 | **Crimpzange** (SN-28B oder Dupont/JST, 0,03–0,5 mm²) | **~10–15 €** | nur wenn selbst gecrimpt wird |
 | *oder* **fertige JST-XH-Pigtails** (10/20 cm, je Polzahl) | **~6 €** | ersetzt Crimpzange, wenn man nicht selbst crimpen will |
 | Schrumpfschlauch-Sortiment + Kabelbinder | **~3 €** | Zugentlastung, Isolierung |
